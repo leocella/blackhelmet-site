@@ -1,8 +1,9 @@
-import { ADDRESS_LINE, CNPJ, INSTAGRAM_URL, LEGAL_NAME, YOUTUBE_URL } from "@/content/site";
+import { ADDRESS_LINE, CNPJ, INSTAGRAM_URL, LEGAL_NAME, MADE_BY, YOUTUBE_URL } from "@/content/site";
+import { track } from "@/lib/track";
 import { Selo } from "./ui";
 
 export const Footer = () => (
-  <footer className="border-t border-graphite bg-helmet pb-28 pt-14 lg:pb-14">
+  <footer className="border-t border-graphite bg-helmet pb-28 pt-14 lg:pb-10">
     <div className="wrap grid gap-10 sm:grid-cols-[auto_1fr_auto] sm:items-center">
       <Selo size={88} />
       <div className="text-[14px] leading-relaxed text-steel-mid">
@@ -16,6 +17,19 @@ export const Footer = () => (
         <li><a className="inline-flex min-h-[44px] items-center px-2 transition-colors hover:text-crest" href="/blog/">Blog</a></li>
         <li><a className="inline-flex min-h-[44px] items-center px-2 transition-colors hover:text-crest" href="/privacidade/">Privacidade</a></li>
       </ul>
+    </div>
+    <div className="wrap mt-10">
+      <p className="border-t border-graphite pt-4 text-center text-[13px] text-steel-mid sm:text-right">
+        <a
+          href={MADE_BY.url}
+          target="_blank"
+          rel="noopener"
+          onClick={() => track("credit_click", { agency: MADE_BY.name })}
+          className="group inline-flex min-h-[44px] items-center gap-1 transition-colors hover:text-crest"
+        >
+          Feito pela <span className="font-semibold text-steel transition-colors group-hover:text-crest">{MADE_BY.name}</span>
+        </a>
+      </p>
     </div>
   </footer>
 );

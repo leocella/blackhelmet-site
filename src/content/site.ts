@@ -16,6 +16,12 @@ export const MAPS_URL = "https://www.google.com/maps?cid=11429641102400006549";
 export const CNPJ = "31.215.910/0001-15";
 export const LEGAL_NAME = "Academia Black Helmet Team";
 
+/** Crédito no rodapé: agência que fez o site. UTM para medir as visitas no Analytics da Claryon. */
+export const MADE_BY = {
+  name: "Claryon",
+  url: "https://www.claryonautomation.com.br/?utm_source=blackhelmet.com.br&utm_medium=referral&utm_campaign=credito_rodape",
+};
+
 export const ADDRESS = {
   street: "R. Expedicionário Aleixo Herculano Maba, 50",
   district: "Garcia",
