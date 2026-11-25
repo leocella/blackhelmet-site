@@ -66,6 +66,7 @@ export const POSTS: Post[] = [
         "Só pontua quem estabiliza e domina o oponente.",
       ] },
       { type: "p", text: "As regras oficiais estão no site da [ADCC Brasil](https://www.adccbrasil.com.br/)." },
+      { type: "p", text: "Para treinar e competir nesse ritmo, a [linha No-Gi da VOUK](https://voukbrasil.com/collections/no-gi \"patrocinado\"), marca que patrocina o Maurício Melo, foi feita para aguentar o rigor de competições como o ADCC." },
       { type: "h2", text: "Do tatame para a vida" },
       { type: "p", text: "O evento também trouxe uma conversa sobre medo. Para Rafael Hammer, o estresse de lutar um evento desse porte é uma escola para quem empreende: acreditar no próprio trabalho mesmo com incerteza é o que separa o amador do profissional." },
       { type: "quote", text: "Preparar-se para o ADCC é como acertar um motor de corrida: cada grama de peso e cada refeição contam. Se o ajuste for preciso e a postura for de ataque, o pódio vira consequência do trabalho feito antes." },

@@ -1,8 +1,12 @@
 import type { ReactNode } from "react";
 
-const TOKEN = /\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)\s]+)\)/g;
+const TOKEN = /\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)\s]+)( "patrocinado")?\)/g;
 
-/** Texto dos posts com **negrito** e [link](url). Sem HTML cru: tudo vira elemento React. */
+/**
+ * Texto dos posts com **negrito**, [link](url) e [link de parceiro](url "patrocinado"),
+ * que sai com rel="sponsored" (exigência do Google para links pagos ou de patrocínio).
+ * Sem HTML cru: tudo vira elemento React.
+ */
 export const Rich = ({ text }: { text: string }) => {
   const out: ReactNode[] = [];
   let last = 0;
@@ -15,11 +19,12 @@ export const Rich = ({ text }: { text: string }) => {
     } else {
       const href = m[3];
       const external = /^https?:\/\//.test(href);
+      const sponsored = m[4] !== undefined;
       out.push(
         <a
           key={m.index}
           href={href}
-          {...(external ? { target: "_blank", rel: "noopener" } : {})}
+          {...(external ? { target: "_blank", rel: sponsored ? "sponsored noopener" : "noopener" } : {})}
           className="font-medium text-helmet underline decoration-crest decoration-2 underline-offset-4 transition-colors hover:bg-crest"
         >
           {m[2]}
