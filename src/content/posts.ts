@@ -2,6 +2,8 @@
 // sem emoji, "Maurício Melo" com acento e um L, "Jiu-Jitsu" com hífen e só títulos confirmados (TITLES em site.ts).
 // Saíram dos textos antigos: grau errado (5º), ranking IBJJF, "primeiro patrocinado", "finalização mais rápida",
 // citação atribuída sem fonte e restos de texto gerado por IA. Antes de recolocar algo assim, confirme com o Maurício.
+// Confirmado pelo Leo em 25/11/2026: o Maurício é patrocinado pela VOUK, recebeu o 6º grau do mestre Crézio
+// e a Professora Maria Helena conduz as turmas kids.
 //
 // Formato do texto: **negrito** e [link](url). Links externos abrem em nova aba.
 
