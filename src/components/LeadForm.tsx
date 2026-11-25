@@ -14,18 +14,29 @@ const maskPhone = (v: string) => {
 
 type Props = { audience: string; onAudience: (v: string) => void };
 
+const FieldError = ({ id, msg }: { id: string; msg: string }) => (
+  <span id={id} role="alert" className="mt-2 flex gap-2 text-[14px] leading-snug text-ring">
+    <span className="mt-[6px] h-2 w-2 shrink-0 bg-crest" aria-hidden="true" />
+    {msg}
+  </span>
+);
+
 export const LeadForm = ({ audience, onAudience }: Props) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [period, setPeriod] = useState(PERIODS[2]);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<{ field: "name" | "phone"; msg: string } | null>(null);
   const [sentLink, setSentLink] = useState<string | null>(null);
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
     const digits = phone.replace(/\D/g, "");
-    if (name.trim().length < 2) return setError("Escreva seu nome para a equipe saber com quem fala.");
-    if (digits.length < 10) return setError("Confira o WhatsApp com DDD, por exemplo (47) 99999-9999.");
+    const fail = (field: "name" | "phone", msg: string) => {
+      setError({ field, msg });
+      document.getElementById(`lead-${field}`)?.focus();
+    };
+    if (name.trim().length < 2) return fail("name", "Escreva seu nome para a equipe saber com quem fala.");
+    if (digits.length < 10) return fail("phone", "Confira o WhatsApp com DDD, por exemplo (47) 99999-9999.");
     setError(null);
 
     const isKid = audience === "Criança";
@@ -74,11 +85,11 @@ export const LeadForm = ({ audience, onAudience }: Props) => {
 
   const chip = (active: boolean) =>
     `min-h-[44px] rounded-full border px-4 text-[14px] font-semibold transition ${
-      active ? "border-crest bg-crest text-helmet" : "border-graphite text-steel hover:border-steel"
+      active ? "border-crest bg-crest text-helmet" : "border-steel-deep text-steel hover:border-steel"
     }`;
 
   return (
-    <form onSubmit={submit} noValidate className="border border-graphite bg-helmet-2 p-5 sm:p-8" aria-describedby={error ? "form-error" : undefined}>
+    <form onSubmit={submit} noValidate className="border border-graphite bg-helmet-2 p-5 sm:p-8">
       <fieldset>
         <legend className="text-[12px] font-semibold uppercase tracking-[0.2em] text-steel">Para quem é a aula?</legend>
         <div className="mt-3 flex flex-wrap gap-2">
@@ -93,7 +104,7 @@ export const LeadForm = ({ audience, onAudience }: Props) => {
                 className="peer sr-only"
               />
               <span className={`${chip(audience === a.formValue)} inline-flex items-center peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-crest`}>
-                {a.id === "kids" ? "Meu filho(a)" : a.tab}
+                {a.id === "kids" ? "Criança" : a.tab}
               </span>
             </label>
           ))}
@@ -105,28 +116,36 @@ export const LeadForm = ({ audience, onAudience }: Props) => {
           <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-steel">Seu nome</span>
           <input
             type="text"
+            id="lead-name"
             name="name"
+            aria-invalid={error?.field === "name" || undefined}
+            aria-describedby={error?.field === "name" ? "lead-name-error" : undefined}
             autoComplete="name"
             required
             value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="mt-2 h-[54px] w-full border border-graphite bg-helmet px-4 text-[17px] text-ring placeholder:text-steel-deep focus:border-crest focus:outline-none"
+            onChange={(e) => { setName(e.target.value); if (error?.field === "name") setError(null); }}
+            className="mt-2 h-[54px] w-full border border-steel-deep bg-helmet px-4 text-[17px] text-ring placeholder:text-steel-mid focus:border-crest focus:outline-none aria-[invalid=true]:border-crest"
             placeholder="Seu nome"
           />
+          {error?.field === "name" && <FieldError id="lead-name-error" msg={error.msg} />}
         </label>
         <label className="block">
           <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-steel">WhatsApp</span>
           <input
             type="tel"
+            id="lead-phone"
             name="phone"
+            aria-invalid={error?.field === "phone" || undefined}
+            aria-describedby={error?.field === "phone" ? "lead-phone-error" : undefined}
             inputMode="tel"
             autoComplete="tel-national"
             required
             value={phone}
-            onChange={(e) => setPhone(maskPhone(e.target.value))}
-            className="mt-2 h-[54px] w-full border border-graphite bg-helmet px-4 text-[17px] text-ring placeholder:text-steel-deep focus:border-crest focus:outline-none"
+            onChange={(e) => { setPhone(maskPhone(e.target.value)); if (error?.field === "phone") setError(null); }}
+            className="mt-2 h-[54px] w-full border border-steel-deep bg-helmet px-4 text-[17px] text-ring placeholder:text-steel-mid focus:border-crest focus:outline-none aria-[invalid=true]:border-crest"
             placeholder="(47) 99999-9999"
           />
+          {error?.field === "phone" && <FieldError id="lead-phone-error" msg={error.msg} />}
         </label>
       </div>
 
@@ -142,18 +161,13 @@ export const LeadForm = ({ audience, onAudience }: Props) => {
         </div>
       </fieldset>
 
-      {error && (
-        <p id="form-error" role="alert" className="mt-5 border-l-4 border-crest bg-helmet px-4 py-3 text-[15px] text-ring">
-          {error}
-        </p>
-      )}
 
       <button type="submit" className="btn-primary mt-7 w-full !min-h-[58px] !text-[18px]">
         Agendar pelo WhatsApp <Arrow className="h-5 w-5" />
       </button>
-      <p className="mt-4 text-center text-[13px] leading-relaxed text-steel-deep">
-        Abre o WhatsApp com sua mensagem pronta. Sem cadastro e sem compromisso.{" "}
-        <a href="/privacidade/" className="underline underline-offset-2 hover:text-steel">Privacidade</a>
+      <p className="mt-4 text-center text-[13px] leading-relaxed text-steel-mid">
+        Abre o WhatsApp com sua mensagem pronta. Sem compromisso.{" "}
+        <a href="/privacidade/" className="underline underline-offset-2 transition-colors hover:text-steel">Privacidade</a>
       </p>
     </form>
   );

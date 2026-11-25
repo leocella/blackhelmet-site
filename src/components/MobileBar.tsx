@@ -40,7 +40,7 @@ export const MobileBar = () => {
           tabIndex={show ? 0 : -1}
           onClick={() => track("whatsapp_click", { location: "mobile_bar" })}
           className="btn-ghost-dark !min-h-[50px] !px-4"
-          aria-label="WhatsApp"
+          aria-label="Falar no WhatsApp"
         >
           <WhatsIcon />
         </a>

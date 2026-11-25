@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { PHOTOS } from "@/content/site";
+import { PHOTOS, TITLES } from "@/content/site";
 
 export const SealLabel = ({ children, className = "", left = false }: { children: ReactNode; className?: string; left?: boolean }) => (
   <p className={`seal-label ${left ? "left" : ""} ${className}`}>{children}</p>
@@ -17,7 +17,7 @@ export const RingStat = ({ value, label, tone = "dark" }: { value: string; label
         {value}
       </span>
     </div>
-    <span className={`mt-3 max-w-[9.5rem] text-[10px] font-medium uppercase leading-snug tracking-[0.28em] sm:text-[11px] ${tone === "dark" ? "text-steel" : "text-steel-deep"}`}>
+    <span className={`mt-3 max-w-[9.5rem] text-[11px] font-medium uppercase leading-snug tracking-[0.24em] sm:text-[12px] ${tone === "dark" ? "text-steel" : "text-steel-deep"}`}>
       {label}
     </span>
   </div>
@@ -44,7 +44,7 @@ export const PhotoSlot = ({ id, className = "", ratio = "aspect-[4/5]" }: { id: 
   if (p.src) {
     return (
       <div className={`relative overflow-hidden bg-helmet-2 ${ratio} ${className}`}>
-        <img src={p.src} alt={p.alt} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={p.src} alt={p.alt} width={p.width} height={p.height} loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
       </div>
     );
   }
@@ -95,3 +95,25 @@ export const Arrow = ({ className = "h-4 w-4" }: { className?: string }) => (
     <path d="M4 12h15M13 6l6 6-6 6" />
   </svg>
 );
+
+/** Faixa com os títulos do Maurício correndo (decorativa: os mesmos títulos estão em lista na seção do professor). */
+export const TitleTicker = () => {
+  const row = (
+    <ul className="flex shrink-0 items-center">
+      {TITLES.map((t) => (
+        <li key={t} className="flex items-center whitespace-nowrap">
+          <span className="px-6 font-display text-[18px] font-medium uppercase tracking-[0.08em] text-steel sm:px-8 sm:text-[22px]">{t}</span>
+          <span className="h-2 w-2 rotate-45 bg-crest" />
+        </li>
+      ))}
+    </ul>
+  );
+  return (
+    <div aria-hidden="true" className="ticker relative overflow-hidden border-y border-graphite bg-helmet-2 py-5">
+      <div className="ticker-track flex w-max">
+        {row}
+        {row}
+      </div>
+    </div>
+  );
+};

@@ -15,8 +15,8 @@ export const Consent = () => {
         <p className="flex-1 text-[12.5px] leading-snug text-steel">
           Cookies de medição para melhorar o site. <a href="/privacidade/" className="text-ring underline underline-offset-2">Detalhes</a>
         </p>
-        <button onClick={() => choose("denied")} className="min-h-[40px] px-3 text-[13px] font-semibold text-steel underline-offset-2 hover:underline">Recusar</button>
-        <button onClick={() => choose("granted")} className="btn-primary !min-h-[40px] !px-4 !text-[14px]">Aceitar</button>
+        <button onClick={() => choose("denied")} className="min-h-[44px] cursor-pointer px-3 text-[13px] font-semibold text-steel underline-offset-2 hover:underline">Recusar</button>
+        <button onClick={() => choose("granted")} className="btn-primary !min-h-[44px] !px-4 !text-[14px]">Aceitar</button>
       </div>
     </div>
   );

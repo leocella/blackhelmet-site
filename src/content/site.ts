@@ -177,10 +177,10 @@ export const FAQ = [
  * Fotos da página. Enquanto estiverem null, a página mostra uma composição com o selo no lugar.
  * Para trocar: coloque o arquivo em public/img/fotos/ (webp, ~1600px no lado maior) e preencha o caminho.
  */
-export const PHOTOS: Record<"hero" | "professor" | "kids" | "turma" | "atleta", { src: string | null; alt: string }> = {
+export const PHOTOS: Record<"hero" | "professor" | "kids" | "turma" | "atleta", { src: string | null; alt: string; width?: number; height?: number }> = {
   hero: { src: null, alt: "Aula de Jiu-Jitsu na Black Helmet Team, em Blumenau" },
   professor: { src: null, alt: "Maurício Melo, faixa preta 6º grau, ensinando no tatame da Black Helmet" },
-  kids: { src: null, alt: "Turma kids de Jiu-Jitsu com a Professora Maria Helena" },
+  kids: { src: "/img/fotos/kids.webp", width: 1080, height: 1080, alt: "Turma kids de Jiu-Jitsu de kimono no tatame da Black Helmet" },
   turma: { src: null, alt: "Alunos treinando Jiu-Jitsu no tatame da Black Helmet" },
-  atleta: { src: null, alt: "Maurício Melo competindo no ADCC Américas, em Buenos Aires" },
+  atleta: { src: "/img/fotos/atleta.webp", width: 1170, height: 793, alt: "Maurício Melo à beira do tatame no ADCC Américas, em Buenos Aires" },
 };

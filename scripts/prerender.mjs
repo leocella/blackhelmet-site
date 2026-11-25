@@ -17,8 +17,15 @@ const SEO_BLOCK = /<!--seo:start[\s\S]*?<!--seo:end-->/;
 const ROOT_EMPTY = '<div id="root"></div>';
 if (!SEO_BLOCK.test(template) || !template.includes(ROOT_EMPTY)) throw new Error("index.html sem marcadores de SEO ou sem #root vazio");
 
+// Google Search Console: só é preciso se a propriedade for "Prefixo do URL" com verificação por meta tag.
+// Na Vercel, crie GOOGLE_SITE_VERIFICATION com o código que o Search Console mostrar (só o valor de content="...").
+const gsc = (process.env.GOOGLE_SITE_VERIFICATION || "").trim().replace(/[^\w-]/g, "");
+const verification = gsc ? `\n  <meta name="google-site-verification" content="${gsc}" />` : "";
+
 const page = (route, html, attrs = "") =>
-  template.replace(SEO_BLOCK, renderHead(route)).replace(ROOT_EMPTY, `<div id="root"${attrs}>${html}</div>`);
+  template
+    .replace(SEO_BLOCK, renderHead(route) + verification)
+    .replace(ROOT_EMPTY, `<div id="root"${attrs}>${html}</div>`);
 
 const routes = getRoutes();
 for (const route of routes) {
@@ -55,8 +62,10 @@ const bots = [
 const robots = isProd
   ? `# robots.txt — Black Helmet Team (gerado por scripts/prerender.mjs)
 # Liberado para buscadores e IAs generativas.
+# Resumo para IAs: ${SITE_URL}/llms.txt
 ${bots.map((l) => (l.startsWith("#") ? `\n${l}` : `User-agent: ${l}\nAllow: /\n`)).join("\n")}
 
+# Demais robôs
 User-agent: *
 Allow: /
 

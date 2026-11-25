@@ -16,7 +16,9 @@ npm run build    # gera dist/ com HTML pré-renderizado, sitemap.xml, robots.txt
 - `FREE_TRIAL` em `site.ts`: mude para `true` só depois que o Maurício confirmar que a aula experimental é gratuita.
 - `PHOTOS` em `site.ts`: coloque as fotos em `public/img/fotos/` (webp, ~1600px) e preencha os caminhos.
 - `src/seo/routes.ts`: title, description e dados estruturados (SportsActivityLocation, Person, FAQPage).
-- `VITE_LEAD_WEBHOOK` (opcional, variável na Vercel): URL que recebe cada lead do formulário em JSON (n8n, Make, planilha). Sem ela, o lead vai só pelo WhatsApp.
+- `VITE_LEAD_WEBHOOK` (opcional, variável na Vercel): URL que recebe cada lead do formulário em JSON (n8n, Make, planilha). Sem ela, o lead vai só pelo WhatsApp. A política de privacidade muda o texto sozinha quando ela existe.
+- `GOOGLE_SITE_VERIFICATION` (opcional, variável na Vercel): código da meta tag do Google Search Console, só se a propriedade for "Prefixo do URL". Com propriedade "Domínio" (recomendado), a verificação é por registro TXT no DNS e essa variável não é usada.
+- `vercel.json`: redirects 301 das URLs do WordPress antigo (posts, categoria, feed e sitemaps). Se um post ganhar rota própria aqui, troque o destino dele.
 
 ## Medição
 

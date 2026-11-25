@@ -5,7 +5,9 @@ import { AudienceTabs } from "@/components/AudienceTabs";
 import { LeadForm } from "@/components/LeadForm";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
-import { Arrow, Check, PhotoSlot, RingStat, SealLabel, WhatsIcon } from "@/components/ui";
+import { PostCard } from "@/components/PostCard";
+import { POSTS_BY_DATE } from "@/content/posts";
+import { Arrow, Check, PhotoSlot, RingStat, SealLabel, TitleTicker, WhatsIcon } from "@/components/ui";
 import {
   ADDRESS, ADDRESS_LINE, HOURS, MAPS_URL, OBJECTIONS, PHONE_DISPLAY, STEPS, STRUCTURE, TITLES, TRIAL_LABEL, WA_DEFAULT, WHATSAPP_NUMBER,
 } from "@/content/site";
@@ -31,6 +33,7 @@ export const Home = () => {
               <circle cx="300" cy="300" r="250" fill="none" stroke="#f2f8f8" strokeOpacity=".12" strokeWidth="1" />
             </svg>
             <div className="relative aspect-square">
+              <div className="absolute inset-[14%] rounded-full bg-[radial-gradient(closest-side,rgba(204,216,224,0.16),transparent)]" />
               <img src="/img/capacete.webp" alt="" width={299} height={368} {...{ fetchpriority: "high" }} className="absolute left-1/2 top-1/2 w-[52%] -translate-x-1/2 -translate-y-1/2" />
             </div>
           </div>
@@ -67,6 +70,8 @@ export const Home = () => {
           </div>
         </section>
 
+        <TitleTicker />
+
         {/* PARA QUEM */}
         <section id="para-quem" className="bg-bone py-20 text-helmet sm:py-28">
           <div className="wrap">
@@ -89,13 +94,15 @@ export const Home = () => {
         <section className="grain relative bg-helmet py-20 sm:py-28">
           <div className="wrap relative">
             <div className="reveal max-w-3xl">
-              <h2 className="h-section">
-                Você não precisa estar em forma. <span className="text-crest">Só precisa aparecer.</span>
+              <SealLabel left className="text-steel">Antes da primeira aula</SealLabel>
+              <h2 className="h-section mt-5">
+                Parece motivo para não começar. <span className="text-crest">Não é.</span>
               </h2>
             </div>
             <div className="mt-12 grid gap-px bg-graphite sm:grid-cols-2">
               {OBJECTIONS.map((o, i) => (
-                <div key={o.q} className="reveal bg-helmet p-7 sm:p-9" style={{ transitionDelay: `${i * 70}ms` }}>
+                <div key={o.q} className="reveal group relative bg-helmet p-7 transition-colors duration-300 hover:bg-helmet-2 sm:p-9" style={{ transitionDelay: `${i * 70}ms` }}>
+                  <span className="absolute inset-y-0 left-0 w-[3px] origin-top scale-y-0 bg-crest transition-transform duration-300 group-hover:scale-y-100" aria-hidden="true" />
                   <p className="font-display text-[26px] font-medium leading-tight text-ring">“{o.q}”</p>
                   <p className="lead mt-3 text-steel">{o.a}</p>
                 </div>
@@ -169,7 +176,8 @@ export const Home = () => {
             </div>
             <div className="mt-12 grid gap-px bg-linelight sm:grid-cols-2 lg:grid-cols-3">
               {STRUCTURE.map((s, i) => (
-                <div key={s.title} className="reveal bg-bone p-7" style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
+                <div key={s.title} className="reveal group relative bg-bone p-7 transition-colors duration-300 hover:bg-white" style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
+                  <span className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-helmet transition-transform duration-300 group-hover:scale-x-100" aria-hidden="true" />
                   <span className="font-display text-[15px] font-medium text-steel-deep">0{i + 1}</span>
                   <h3 className="mt-2 font-display text-[24px] font-semibold leading-tight">{s.title}</h3>
                   <p className="mt-2 text-[16px] leading-relaxed text-steel-deep">{s.text}</p>
@@ -185,8 +193,10 @@ export const Home = () => {
             <PhotoSlot id="atleta" ratio="aspect-[16/11] lg:aspect-auto lg:min-h-[560px]" />
             <div className="wrap reveal flex flex-col justify-center py-16 lg:max-w-none lg:px-16">
               <SealLabel left className="text-steel">Do tatame ao pódio</SealLabel>
-              <p className="mt-6 font-display text-[22px] font-light uppercase tracking-[0.04em] text-ring/80 sm:text-[28px]">Guerra é preparo.</p>
-              <p className="font-display text-[64px] font-bold uppercase leading-[0.88] text-crest sm:text-[96px]">Legado.</p>
+              <h2 className="mt-6">
+                <span className="block font-display text-[22px] font-light uppercase tracking-[0.04em] text-ring/80 sm:text-[28px]">Guerra é preparo.</span>
+                <span className="block font-display text-[64px] font-bold uppercase leading-[0.88] text-crest sm:text-[96px]">Legado.</span>
+              </h2>
               <p className="lead mt-6 max-w-lg text-steel">
                 Ouro no Europeu IBJJF, bronze no Mundial No-Gi e quatro títulos em eventos ADCC. A disciplina que leva o Maurício ao pódio é a mesma que
                 você encontra na aula das 17h15 de uma terça qualquer.
@@ -249,11 +259,29 @@ export const Home = () => {
                     </div>
                   ))}
                 </dl>
-                <p className="mt-3 text-[14px] text-steel-deep">A grade de cada turma vai pelo WhatsApp quando você agenda.</p>
+                <p className="mt-3 text-[14px] text-steel-mid">A grade de cada turma vai pelo WhatsApp quando você agenda.</p>
               </div>
               <a href={`tel:+${WHATSAPP_NUMBER}`} onClick={() => track("phone_click")} className="font-display text-[28px] font-medium text-ring transition hover:text-crest">
                 {PHONE_DISPLAY}
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* BLOG */}
+        <section id="blog" aria-labelledby="blog-titulo" className="bg-bone py-20 text-helmet sm:py-28">
+          <div className="wrap">
+            <div className="reveal flex flex-wrap items-end justify-between gap-6">
+              <div className="max-w-2xl">
+                <SealLabel left className="text-steel-deep">Do blog</SealLabel>
+                <h2 id="blog-titulo" className="h-section mt-5">Direto do <span className="grifo">tatame.</span></h2>
+              </div>
+              <a href="/blog/" className="btn-ghost-light">Ver todos os posts <Arrow /></a>
+            </div>
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {POSTS_BY_DATE.slice(0, 3).map((p, i) => (
+                <div key={p.slug} className="reveal" style={{ transitionDelay: `${i * 80}ms` }}><PostCard post={p} /></div>
+              ))}
             </div>
           </div>
         </section>

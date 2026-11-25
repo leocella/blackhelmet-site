@@ -10,10 +10,28 @@ const NAV = [
   { href: "#estrutura", label: "Estrutura" },
   { href: "#duvidas", label: "Dúvidas" },
   { href: "#onde", label: "Onde fica" },
+  { href: "/blog/", label: "Blog" },
 ];
 
-export const Header = () => {
+/** onHome=false: links de seção apontam para "/#secao" (páginas do blog e outras rotas). */
+export const Header = ({ onHome = true, current: fixedCurrent }: { onHome?: boolean; current?: string }) => {
   const [solid, setSolid] = useState(false);
+  const [spy, setSpy] = useState<string | null>(null);
+  const current = fixedCurrent ?? spy;
+  const link = (href: string) => (href.startsWith("#") && !onHome ? `/${href}` : href);
+
+  // Marca no menu a seção que está no meio da tela.
+  useEffect(() => {
+    if (!onHome || !("IntersectionObserver" in window)) return;
+    const els = NAV.filter((n) => n.href.startsWith("#")).map((n) => document.querySelector<HTMLElement>(n.href)).filter((el): el is HTMLElement => !!el);
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) setSpy(`#${e.target.id}`); }),
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [onHome]);
+
   useEffect(() => {
     const on = () => setSolid(window.scrollY > 24);
     on();
@@ -28,15 +46,21 @@ export const Header = () => {
       }`}
     >
       <div className="wrap flex h-[64px] items-center justify-between gap-4 sm:h-[72px]">
-        <a href="#topo" className="flex items-center gap-3" aria-label="Black Helmet Team, voltar ao início">
+        <a href={onHome ? "#topo" : "/"} className="flex items-center gap-3" aria-label="Black Helmet Team, voltar ao início">
           <Selo size={44} eager />
           <span className="hidden font-body text-[13px] font-bold uppercase tracking-[0.14em] sm:block">Black Helmet</span>
         </a>
-        <nav aria-label="Seções da página" className="hidden lg:block">
-          <ul className="flex items-center gap-7 text-[13px] font-medium text-steel">
+        <nav aria-label="Menu principal" className="hidden lg:block">
+          <ul className="flex items-center gap-6 text-[13px] xl:gap-7 font-medium text-steel">
             {NAV.map((n) => (
               <li key={n.href}>
-                <a className="transition hover:text-crest" href={n.href}>{n.label}</a>
+                <a
+                  href={link(n.href)}
+                  aria-current={current === n.href ? (n.href.startsWith("#") ? "true" : "page") : undefined}
+                  className="relative inline-flex min-h-[44px] items-center transition-colors duration-200 hover:text-ring aria-[current=true]:text-ring aria-[current=page]:text-ring after:absolute after:inset-x-0 after:bottom-2 after:h-[2px] after:origin-left after:scale-x-0 after:bg-crest after:transition-transform after:duration-300 hover:after:scale-x-100 aria-[current=true]:after:scale-x-100 aria-[current=page]:after:scale-x-100"
+                >
+                  {n.label}
+                </a>
               </li>
             ))}
           </ul>
@@ -52,7 +76,7 @@ export const Header = () => {
           >
             <WhatsIcon />
           </a>
-          <a href="#agendar" onClick={() => track("cta_click", { location: "header" })} className="btn-primary !min-h-[44px] !px-5 !text-[15px]">
+          <a href={link("#agendar")} onClick={() => track("cta_click", { location: "header" })} className="btn-primary !min-h-[44px] !px-5 !text-[15px]">
             Agendar aula
           </a>
         </div>
