@@ -39,11 +39,15 @@ export const HOURS = [
 export const waLink = (text: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 export const WA_DEFAULT = waLink(`Olá! Quero agendar uma ${TRIAL_LABEL} na Black Helmet.`);
 
+/** Anos de Jiu-Jitsu e de faixa preta do Maurício (corrigido para 39 pelo Leo em 25/11/2026). Fonte única: atualize aqui. */
+export const YEARS_JIU_JITSU = 39;
+export const YEARS_BLACK_BELT = 24;
+
 /** Títulos aprovados no manual de marca (tabela "Títulos: só o que dá para provar"). */
 export const TITLES = [
   "Faixa preta 6º grau",
   "Faixa preta de Carlos Gracie Jr.",
-  "36 anos de Jiu-Jitsu, 24 de faixa preta",
+  `${YEARS_JIU_JITSU} anos de Jiu-Jitsu, ${YEARS_BLACK_BELT} de faixa preta`,
   "Ouro no Europeu IBJJF (kimono)",
   "Bronze no Mundial No-Gi IBJJF",
   "4x campeão em eventos ADCC",
@@ -175,7 +179,7 @@ export const FAQ = [
   },
   {
     q: "Quem é o Maurício Melo?",
-    a: "Maurício Melo é faixa preta 6º grau de Carlos Gracie Jr., com 36 anos de Jiu-Jitsu e 24 de faixa preta. É ouro no Europeu IBJJF (kimono), bronze no Mundial No-Gi IBJJF, 4x campeão em eventos ADCC e competiu no ADCC Américas em Buenos Aires, em dezembro de 2025. Ensina na Black Helmet, em Blumenau, desde 1998.",
+    a: `Maurício Melo é faixa preta 6º grau de Carlos Gracie Jr., com ${YEARS_JIU_JITSU} anos de Jiu-Jitsu e ${YEARS_BLACK_BELT} de faixa preta. É ouro no Europeu IBJJF (kimono), bronze no Mundial No-Gi IBJJF, 4x campeão em eventos ADCC e competiu no ADCC Américas em Buenos Aires, em dezembro de 2025. Ensina na Black Helmet, em Blumenau, desde 1998.`,
   },
 ];
 

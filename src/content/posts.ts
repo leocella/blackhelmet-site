@@ -5,6 +5,8 @@
 // Confirmado pelo Leo em 25/11/2026: o Maurício é patrocinado pela VOUK, recebeu o 6º grau do mestre Crézio
 // e a Professora Maria Helena conduz as turmas kids.
 //
+import { YEARS_BLACK_BELT, YEARS_JIU_JITSU } from "@/content/site";
+
 // Formato do texto: **negrito** e [link](url). Links externos abrem em nova aba.
 
 export type Block =
@@ -142,7 +144,7 @@ export const POSTS: Post[] = [
       { type: "p", text: "Blumenau tem se destacado nas artes marciais com o crescimento do Jiu-Jitsu. Dentro desse movimento, a **Black Helmet** virou um polo de formação de atletas e de difusão da arte suave. Este texto fala do **Maurício Melo**, atleta que levou o nome da cidade para o cenário internacional, e de como o apoio a atletas locais fortalece o esporte na região." },
       { type: "video", id: "GCNN-CraO9k", title: "A trajetória de Maurício Melo" },
       { type: "h2", text: "Quem é Maurício Melo" },
-      { type: "p", text: "O Maurício Melo é **faixa preta 6º grau**, graduado faixa preta por Carlos Gracie Jr., com 36 anos de Jiu-Jitsu e 24 de faixa preta. É ouro no Europeu IBJJF (kimono), bronze no Mundial No-Gi IBJJF, 4x campeão em eventos ADCC e competiu no ADCC Américas, em Buenos Aires, em dezembro de 2025. É atleta patrocinado pela marca VOUK e o símbolo da Black Helmet, academia que comanda em Blumenau desde 1998." },
+      { type: "p", text: `O Maurício Melo é **faixa preta 6º grau**, graduado faixa preta por Carlos Gracie Jr., com ${YEARS_JIU_JITSU} anos de Jiu-Jitsu e ${YEARS_BLACK_BELT} de faixa preta. É ouro no Europeu IBJJF (kimono), bronze no Mundial No-Gi IBJJF, 4x campeão em eventos ADCC e competiu no ADCC Américas, em Buenos Aires, em dezembro de 2025. É atleta patrocinado pela marca VOUK e o símbolo da Black Helmet, academia que comanda em Blumenau desde 1998.` },
       { type: "h2", text: "A importância do apoio aos atletas" },
       { type: "p", text: "O apoio de marcas e academias é o que permite a talentos regionais competir e evoluir. Com patrocínio, o atleta consegue:" },
       { type: "ul", items: [

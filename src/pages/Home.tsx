@@ -9,7 +9,7 @@ import { PostCard } from "@/components/PostCard";
 import { POSTS_BY_DATE } from "@/content/posts";
 import { Arrow, Check, PhotoSlot, RingStat, SealLabel, TitleTicker, WhatsIcon } from "@/components/ui";
 import {
-  ADDRESS, ADDRESS_LINE, HOURS, MAPS_URL, OBJECTIONS, PHONE_DISPLAY, STEPS, STRUCTURE, TITLES, TRIAL_LABEL, WA_DEFAULT, WHATSAPP_NUMBER,
+  ADDRESS, ADDRESS_LINE, HOURS, YEARS_BLACK_BELT, YEARS_JIU_JITSU, MAPS_URL, OBJECTIONS, PHONE_DISPLAY, STEPS, STRUCTURE, TITLES, TRIAL_LABEL, WA_DEFAULT, WHATSAPP_NUMBER,
 } from "@/content/site";
 import { track } from "@/lib/track";
 import { useReveal } from "@/lib/useReveal";
@@ -63,7 +63,7 @@ export const Home = () => {
 
             <div className="mt-14 grid grid-cols-2 gap-y-8 border-t border-graphite pt-10 sm:mt-20 sm:grid-cols-4">
               <RingStat value="6º" label="Grau · faixa preta" />
-              <RingStat value="36" label="Anos de tatame" />
+              <RingStat value={String(YEARS_JIU_JITSU)} label="Anos de tatame" />
               <RingStat value="4x" label="Campeão em eventos ADCC" />
               <RingStat value="1998" label="Desde · Blumenau" />
             </div>
@@ -150,7 +150,7 @@ export const Home = () => {
                 Você aprende com quem <span className="text-crest">ainda compete.</span>
               </h2>
               <p className="lead mt-6 text-steel">
-                O Maurício Melo é faixa preta de Carlos Gracie Jr., com 36 anos de Jiu-Jitsu e 24 de faixa preta.
+                O Maurício Melo é faixa preta de Carlos Gracie Jr., com {YEARS_JIU_JITSU} anos de Jiu-Jitsu e {YEARS_BLACK_BELT} de faixa preta.
                 Em dezembro de 2025 estava no tatame do ADCC Américas, em Buenos Aires. O mesmo preparo que ele leva para o campeonato,
                 ele traz para a sua aula: técnica limpa, correção de perto e respeito pelo seu ritmo.
               </p>

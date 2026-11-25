@@ -1,5 +1,5 @@
 import {
-  ADDRESS, CNPJ, FAQ, HOURS, INSTAGRAM_URL, LEGAL_NAME, MAPS_URL, SITE_NAME, SITE_URL, TITLES, WHATSAPP_NUMBER, YOUTUBE_URL,
+  ADDRESS, CNPJ, FAQ, YEARS_BLACK_BELT, YEARS_JIU_JITSU, HOURS, INSTAGRAM_URL, LEGAL_NAME, MAPS_URL, SITE_NAME, SITE_URL, TITLES, WHATSAPP_NUMBER, YOUTUBE_URL,
 } from "@/content/site";
 import { POSTS, POSTS_BY_DATE, postPath, type Post } from "@/content/posts";
 
@@ -90,7 +90,7 @@ const person: JsonLd = {
   name: "Maurício Melo",
   jobTitle: "Mestre de Jiu-Jitsu, faixa preta 6º grau",
   description:
-    "Faixa preta 6º grau de Carlos Gracie Jr., com 36 anos de Jiu-Jitsu e 24 de faixa preta. Fundador e professor da Black Helmet Team, em Blumenau (SC).",
+    `Faixa preta 6º grau de Carlos Gracie Jr., com ${YEARS_JIU_JITSU} anos de Jiu-Jitsu e ${YEARS_BLACK_BELT} de faixa preta. Fundador e professor da Black Helmet Team, em Blumenau (SC).`,
   award: TITLES.filter((t) => /Ouro|Bronze|campeão|Competidor/.test(t)),
   knowsAbout: ["Brazilian Jiu-Jitsu", "No-Gi", "Grappling", "ADCC", "Defesa pessoal"],
   worksFor: { "@id": ORG_ID },
