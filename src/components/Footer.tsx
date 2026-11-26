@@ -1,4 +1,4 @@
-import { ADDRESS_LINE, CNPJ, INSTAGRAM_URL, LEGAL_NAME, MADE_BY, YOUTUBE_URL } from "@/content/site";
+import { ADDRESS_LINE, CNPJ, INSTAGRAM_URL, CREDITS, LEGAL_NAME, YOUTUBE_URL } from "@/content/site";
 import { track } from "@/lib/track";
 import { Selo } from "./ui";
 
@@ -19,17 +19,21 @@ export const Footer = () => (
       </ul>
     </div>
     <div className="wrap mt-10">
-      <p className="border-t border-graphite pt-4 text-center text-[13px] text-steel-mid sm:text-right">
-        <a
-          href={MADE_BY.url}
-          target="_blank"
-          rel="noopener"
-          onClick={() => track("credit_click", { agency: MADE_BY.name })}
-          className="group inline-flex min-h-[44px] items-center gap-1 transition-colors hover:text-crest"
-        >
-          Feito pela <span className="font-semibold text-steel transition-colors group-hover:text-crest">{MADE_BY.name}</span>
-        </a>
-      </p>
+      <ul className="flex flex-wrap justify-center gap-x-6 border-t border-graphite pt-4 text-[13px] text-steel-mid sm:justify-end">
+        {CREDITS.map((c) => (
+          <li key={c.name}>
+            <a
+              href={c.url}
+              target="_blank"
+              rel="noopener"
+              onClick={() => track("credit_click", { agency: c.name, role: c.role })}
+              className="group inline-flex min-h-[44px] items-center gap-1 transition-colors hover:text-crest"
+            >
+              {c.role} por <span className="font-semibold text-steel transition-colors group-hover:text-crest">{c.name}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   </footer>
 );
