@@ -66,7 +66,7 @@ export const PhotoSlot = ({ id, className = "", ratio = "aspect-[4/5]" }: { id: 
         <circle cx="200" cy="250" r="140" fill="none" stroke="#f2f8f8" strokeOpacity=".08" strokeWidth="1" />
       </svg>
       {f.helmet ? (
-        <img src="/img/capacete.webp" alt="" width={417} height={501} loading="lazy" className="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 opacity-90" />
+        <img src="/img/capacete.webp" alt="" width={638} height={766} loading="lazy" className="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 opacity-90" />
       ) : (
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
           <span className="font-display text-[clamp(72px,12vw,150px)] font-bold uppercase leading-none text-transparent" style={{ WebkitTextStroke: "2px #f1e306" }}>
