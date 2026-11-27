@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { PHOTOS, TITLES } from "@/content/site";
+import { PHOTOS, SITE_NAME, TITLES } from "@/content/site";
 
 export const SealLabel = ({ children, className = "", left = false }: { children: ReactNode; className?: string; left?: boolean }) => (
   <p className={`seal-label ${left ? "left" : ""} ${className}`}>{children}</p>
@@ -23,15 +23,17 @@ export const RingStat = ({ value, label, tone = "dark" }: { value: string; label
   </div>
 );
 
-export const Selo = ({ size = 48, className = "", eager = false }: { size?: number; className?: string; eager?: boolean }) => (
+export const Selo = ({ size = 48, className = "", eager = false, alt = SITE_NAME }: { size?: number; className?: string; eager?: boolean; alt?: string }) => (
   <picture>
-    <source type="image/webp" srcSet="/img/selo-192.webp 192w, /img/selo-384.webp 384w" sizes={`${size}px`} />
+    <source type="image/webp" srcSet="/img/selo-96.webp 96w, /img/selo-192.webp 192w, /img/selo-384.webp 384w" sizes={`${size}px`} />
     <img
       src="/img/selo-192.png"
+      srcSet="/img/selo-96.png 96w, /img/selo-192.png 192w, /img/selo-384.png 384w"
+      sizes={`${size}px`}
       width={size}
       height={size}
-      alt="Selo Black Helmet Brazilian Jiu-Jitsu, desde 1998"
-      className={`rounded-full ${className}`}
+      alt={alt}
+      className={className}
       loading={eager ? "eager" : "lazy"}
       decoding="async"
     />
@@ -64,7 +66,7 @@ export const PhotoSlot = ({ id, className = "", ratio = "aspect-[4/5]" }: { id: 
         <circle cx="200" cy="250" r="140" fill="none" stroke="#f2f8f8" strokeOpacity=".08" strokeWidth="1" />
       </svg>
       {f.helmet ? (
-        <img src="/img/capacete.webp" alt="" loading="lazy" className="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 opacity-90" />
+        <img src="/img/capacete.webp" alt="" width={417} height={501} loading="lazy" className="absolute left-1/2 top-1/2 w-[46%] -translate-x-1/2 -translate-y-1/2 opacity-90" />
       ) : (
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
           <span className="font-display text-[clamp(72px,12vw,150px)] font-bold uppercase leading-none text-transparent" style={{ WebkitTextStroke: "2px #f1e306" }}>

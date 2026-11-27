@@ -34,7 +34,7 @@ export const Home = () => {
             </svg>
             <div className="relative aspect-square">
               <div className="absolute inset-[14%] rounded-full bg-[radial-gradient(closest-side,rgba(204,216,224,0.16),transparent)]" />
-              <img src="/img/capacete.webp" alt="" width={299} height={368} {...{ fetchpriority: "high" }} className="absolute left-1/2 top-1/2 w-[52%] -translate-x-1/2 -translate-y-1/2" />
+              <img src="/img/capacete.webp" alt="" width={417} height={501} {...{ fetchpriority: "high" }} className="absolute left-1/2 top-1/2 w-[52%] -translate-x-1/2 -translate-y-1/2" />
             </div>
           </div>
 

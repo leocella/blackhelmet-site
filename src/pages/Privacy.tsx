@@ -8,7 +8,7 @@ const LEAD_WEBHOOK = Boolean(import.meta.env.VITE_LEAD_WEBHOOK);
 export const Privacy = () => (
   <>
     <header className="border-b border-graphite">
-      <div className="wrap flex h-[72px] items-center"><a href="/" aria-label="Voltar ao início"><Selo size={44} eager /></a></div>
+      <div className="wrap flex h-[72px] items-center"><a href="/" aria-label="Voltar ao início"><Selo size={48} eager alt="" /></a></div>
     </header>
     <main className="wrap max-w-3xl py-16 text-steel">
       <h1 className="font-display text-[44px] font-semibold leading-none text-ring">Política de privacidade</h1>

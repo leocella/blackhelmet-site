@@ -37,7 +37,7 @@ export const Links = () => (
 
     <div className="relative mx-auto w-full max-w-[440px] px-5">
       <header className="rise text-center">
-        <Selo size={112} eager className="mx-auto" />
+        <Selo size={112} eager alt="" className="mx-auto" />
         <h1 className="mt-6 font-display text-[34px] font-semibold uppercase leading-none tracking-[0.04em]">Black Helmet Team</h1>
         <SealLabel className="mt-4 justify-center text-steel">Blumenau · desde 1998</SealLabel>
         <p className="mt-5 font-display text-[22px] font-light leading-tight text-ring/90">

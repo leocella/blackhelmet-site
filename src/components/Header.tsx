@@ -46,9 +46,9 @@ export const Header = ({ onHome = true, current: fixedCurrent }: { onHome?: bool
       }`}
     >
       <div className="wrap flex h-[64px] items-center justify-between gap-4 sm:h-[72px]">
-        <a href={onHome ? "#topo" : "/"} className="flex items-center gap-3" aria-label="Black Helmet Team, voltar ao início">
-          <Selo size={44} eager />
-          <span className="hidden font-body text-[13px] font-bold uppercase tracking-[0.14em] sm:block">Black Helmet</span>
+        <a href={onHome ? "#topo" : "/"} className="flex shrink-0 items-center gap-3" aria-label="Black Helmet Team, voltar ao início">
+          <Selo size={48} eager alt="" />
+          <span className="hidden whitespace-nowrap font-body text-[13px] font-bold uppercase tracking-[0.14em] sm:block lg:hidden xl:block">Black Helmet</span>
         </a>
         <nav aria-label="Menu principal" className="hidden lg:block">
           <ul className="flex items-center gap-6 text-[13px] xl:gap-7 font-medium text-steel">
