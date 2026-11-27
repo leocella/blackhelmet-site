@@ -55,7 +55,7 @@ export const Post = ({ post }: { post: PostT }) => {
   const related = POSTS_BY_DATE.filter((p) => p.slug !== post.slug && p.category === post.category)
     .concat(POSTS_BY_DATE.filter((p) => p.slug !== post.slug && p.category !== post.category))
     .slice(0, 3);
-  const author = post.author === "mauricio" ? "Maurício Melo" : "Black Helmet Team";
+  const author = post.author === "mauricio" ? "Mauricio Melo" : "Black Helmet Team";
   const portrait = post.cover.height > post.cover.width;
 
   return (
@@ -111,10 +111,10 @@ export const Post = ({ post }: { post: PostT }) => {
               <aside className="mx-auto mt-16 max-w-[44rem] border-t-2 border-helmet pt-10" aria-label="Agendar aula">
                 <SealLabel left className="text-steel-deep">Aula experimental</SealLabel>
                 <p className="mt-4 font-display text-[34px] font-semibold leading-[1.02] sm:text-[42px]">
-                  Treine com o Maurício Melo, <span className="grifo">em Blumenau.</span>
+                  Treine com o Mauricio Melo, <span className="grifo">em Blumenau.</span>
                 </p>
                 <p className="lead mt-4 text-steel-deep">
-                  Turmas para adultos, mulheres, kids a partir de 5 anos e 40+, no bairro Garcia. Você não precisa estar em forma para começar.
+                  Turmas para adultos de todas as idades, mulheres e kids a partir de 5 anos, no bairro Garcia. Você não precisa estar em forma para começar.
                 </p>
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <a href="/#agendar" onClick={() => track("cta_click", { location: "post", post: post.slug })} className="btn-primary">

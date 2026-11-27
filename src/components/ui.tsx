@@ -96,7 +96,7 @@ export const Arrow = ({ className = "h-4 w-4" }: { className?: string }) => (
   </svg>
 );
 
-/** Faixa com os títulos do Maurício correndo (decorativa: os mesmos títulos estão em lista na seção do professor). */
+/** Faixa com os títulos do Mauricio correndo (decorativa: os mesmos títulos estão em lista na seção do professor). */
 export const TitleTicker = () => {
   const row = (
     <ul className="flex shrink-0 items-center">

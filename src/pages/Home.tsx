@@ -9,7 +9,7 @@ import { PostCard } from "@/components/PostCard";
 import { POSTS_BY_DATE } from "@/content/posts";
 import { Arrow, Check, PhotoSlot, RingStat, SealLabel, TitleTicker, WhatsIcon } from "@/components/ui";
 import {
-  ADDRESS, ADDRESS_LINE, HOURS, YEARS_BLACK_BELT, YEARS_JIU_JITSU, MAPS_URL, OBJECTIONS, PHONE_DISPLAY, STEPS, STRUCTURE, TITLES, TRIAL_LABEL, WA_DEFAULT, WHATSAPP_NUMBER,
+  ADCC_TITLES, ADDRESS, ADDRESS_LINE, HOURS, YEARS_BLACK_BELT, YEARS_JIU_JITSU, MAPS_URL, OBJECTIONS, PHONE_DISPLAY, STEPS, STRUCTURE, TITLES, TRIAL_LABEL, WA_DEFAULT, WHATSAPP_NUMBER,
 } from "@/content/site";
 import { track } from "@/lib/track";
 import { useReveal } from "@/lib/useReveal";
@@ -44,7 +44,7 @@ export const Home = () => {
               Jiu-Jitsu em Blumenau. <span className="font-light text-ring/90">Todo mundo começou do</span> <span className="text-crest">zero.</span>
             </h1>
             <p className="rise lead mt-7 max-w-[40rem] text-ring/90" style={{ animationDelay: ".16s" }}>
-              Turmas para adultos, mulheres, crianças a partir de 5 anos e 40+, com o Maurício Melo, faixa preta 6º grau de Carlos Gracie Jr.
+              Turmas para adultos, mulheres e crianças a partir de 5 anos, inclusive para quem começa depois dos 40, com o Mauricio Melo, faixa preta 6º grau de Carlos Gracie Jr.
               Você não precisa estar em forma. <em className="font-medium text-steel">Só precisa aparecer.</em>
             </p>
             <div className="rise mt-9 flex flex-col gap-3 sm:flex-row" style={{ animationDelay: ".24s" }}>
@@ -64,7 +64,7 @@ export const Home = () => {
             <div className="mt-14 grid grid-cols-2 gap-y-8 border-t border-graphite pt-10 sm:mt-20 sm:grid-cols-4">
               <RingStat value="6º" label="Grau · faixa preta" />
               <RingStat value={String(YEARS_JIU_JITSU)} label="Anos de tatame" />
-              <RingStat value="4x" label="Campeão em eventos ADCC" />
+              <RingStat value={`${ADCC_TITLES}x`} label="Campeão em eventos ADCC" />
               <RingStat value="1998" label="Desde · Blumenau" />
             </div>
           </div>
@@ -81,7 +81,7 @@ export const Home = () => {
                 Escolha <span className="grifo">por onde</span> você começa.
               </h2>
               <p className="lead mt-5 text-steel-deep">
-                Cada turma tem ritmo, cuidado e objetivo próprios. Toque no seu perfil e veja como é a sua primeira aula.
+                Cada perfil tem ritmo, cuidado e objetivo próprios. Toque no seu e veja como é a sua primeira aula.
               </p>
             </div>
             <div className="reveal mt-10">
@@ -141,7 +141,7 @@ export const Home = () => {
             <div className="reveal relative">
               <PhotoSlot id="professor" ratio="aspect-[4/5]" />
               <div className="absolute -bottom-6 left-6 bg-crest px-5 py-3 font-display text-[18px] font-semibold uppercase tracking-[0.06em] text-helmet sm:left-8">
-                Maurício Melo
+                Mauricio Melo
               </div>
             </div>
             <div className="reveal">
@@ -150,7 +150,7 @@ export const Home = () => {
                 Você aprende com quem <span className="text-crest">ainda compete.</span>
               </h2>
               <p className="lead mt-6 text-steel">
-                O Maurício Melo é faixa preta de Carlos Gracie Jr., com {YEARS_JIU_JITSU} anos de Jiu-Jitsu e {YEARS_BLACK_BELT} de faixa preta.
+                O Mauricio Melo é faixa preta de Carlos Gracie Jr., com {YEARS_JIU_JITSU} anos de Jiu-Jitsu e {YEARS_BLACK_BELT} de faixa preta.
                 Em dezembro de 2025 estava no tatame do ADCC Américas, em Buenos Aires. O mesmo preparo que ele leva para o campeonato,
                 ele traz para a sua aula: técnica limpa, correção de perto e respeito pelo seu ritmo.
               </p>
@@ -160,8 +160,9 @@ export const Home = () => {
                 ))}
               </ul>
               <p className="mt-8 border-l-2 border-crest pl-4 text-[15px] leading-relaxed text-steel">
-                As turmas kids ficam com a <strong className="text-ring">Professora Maria Helena</strong>, graduada faixa preta na Black Helmet.
-                A equipe de professores foi formada pelo próprio Maurício.
+                As turmas kids ficam com a <strong className="text-ring">Professora Maria Helena</strong>, graduada faixa preta na Black Helmet,
+                o <strong className="text-ring">Professor Mauricio</strong> e o <strong className="text-ring">Instrutor Andrews</strong>.
+                A equipe foi formada pelo próprio Mauricio.
               </p>
             </div>
           </div>
@@ -174,9 +175,14 @@ export const Home = () => {
               <SealLabel left className="text-steel-deep">Estrutura</SealLabel>
               <h2 className="h-section mt-5">Feita para você <span className="grifo">voltar</span> amanhã.</h2>
             </div>
-            <div className="mt-12 grid gap-px bg-linelight sm:grid-cols-2 lg:grid-cols-3">
+            {/* 5 cards: 2 em cima e 3 embaixo no desktop; no tablet o último ocupa a linha inteira. */}
+            <div className="mt-12 grid gap-px bg-linelight sm:grid-cols-2 lg:grid-cols-6">
               {STRUCTURE.map((s, i) => (
-                <div key={s.title} className="reveal group relative bg-bone p-7 transition-colors duration-300 hover:bg-white" style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
+                <div
+                  key={s.title}
+                  className={`reveal group relative bg-bone p-7 transition-colors duration-300 hover:bg-white ${i < 2 ? "lg:col-span-3" : "lg:col-span-2"} ${i === STRUCTURE.length - 1 && STRUCTURE.length % 2 ? "sm:col-span-2 lg:col-span-2" : ""}`}
+                  style={{ transitionDelay: `${(i < 2 ? i : i - 2) * 70}ms` }}
+                >
                   <span className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-helmet transition-transform duration-300 group-hover:scale-x-100" aria-hidden="true" />
                   <span className="font-display text-[15px] font-medium text-steel-deep">0{i + 1}</span>
                   <h3 className="mt-2 font-display text-[24px] font-semibold leading-tight">{s.title}</h3>
@@ -198,12 +204,12 @@ export const Home = () => {
                 <span className="block font-display text-[64px] font-bold uppercase leading-[0.88] text-crest sm:text-[96px]">Legado.</span>
               </h2>
               <p className="lead mt-6 max-w-lg text-steel">
-                Ouro no Europeu IBJJF, bronze no Mundial No-Gi e quatro títulos em eventos ADCC. A disciplina que leva o Maurício ao pódio é a mesma que
+                Ouro no Europeu IBJJF, bronze no Mundial IBJJF, os dois de kimono, e {ADCC_TITLES} títulos em eventos ADCC. A disciplina que leva o Mauricio ao pódio é a mesma que
                 você encontra na aula das 17h15 de uma terça qualquer.
               </p>
               <div className="mt-8">
                 <a href="#agendar" onClick={() => track("cta_click", { location: "athlete" })} className="btn-ghost-dark w-full sm:w-auto">
-                  Treinar com o Maurício <Arrow />
+                  Treinar com o Mauricio <Arrow />
                 </a>
               </div>
             </div>

@@ -43,7 +43,7 @@ export const LeadForm = ({ audience, onAudience }: Props) => {
     const msg = [
       `Olá! Quero agendar uma ${TRIAL_LABEL} na Black Helmet.`,
       `Nome: ${name.trim()}`,
-      `Turma: ${isKid ? "Kids (para meu filho ou filha)" : audience}`,
+      `Perfil: ${isKid ? "Kids (para meu filho ou filha)" : audience}`,
       `Melhor período: ${period}`,
       `WhatsApp: ${phone}`,
     ].join("\n");

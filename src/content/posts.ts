@@ -1,11 +1,13 @@
 // Posts do blog. Migrados do WordPress antigo em 25/11/2026 e revisados pelo manual de marca:
-// sem emoji, "Maurício Melo" com acento e um L, "Jiu-Jitsu" com hífen e só títulos confirmados (TITLES em site.ts).
+// sem emoji, "Mauricio Melo" sem acento e com um L, "Jiu-Jitsu" com hífen e só títulos confirmados (TITLES em site.ts).
 // Saíram dos textos antigos: grau errado (5º), ranking IBJJF, "primeiro patrocinado", "finalização mais rápida",
-// citação atribuída sem fonte e restos de texto gerado por IA. Antes de recolocar algo assim, confirme com o Maurício.
-// Confirmado pelo Leo em 25/11/2026: o Maurício é patrocinado pela VOUK, recebeu o 6º grau do mestre Crézio
+// citação atribuída sem fonte e restos de texto gerado por IA. Antes de recolocar algo assim, confirme com o Mauricio.
+// Confirmado pelo Leo em 25/11/2026: o Mauricio é patrocinado pela VOUK, recebeu o 6º grau do mestre Crézio
 // e a Professora Maria Helena conduz as turmas kids.
+// Atualizado pelo Leo em 27/11/2026: kids com Prof. Maria Helena, Prof. Mauricio e Instrutor Andrews; bronze no Mundial
+// foi de kimono; 5 títulos em eventos ADCC (ADCC_TITLES em site.ts).
 //
-import { YEARS_BLACK_BELT, YEARS_JIU_JITSU } from "@/content/site";
+import { ADCC_TITLES, YEARS_BLACK_BELT, YEARS_JIU_JITSU } from "@/content/site";
 
 // Formato do texto: **negrito** e [link](url). Links externos abrem em nova aba.
 
@@ -68,12 +70,12 @@ export const POSTS: Post[] = [
         "Só pontua quem estabiliza e domina o oponente.",
       ] },
       { type: "p", text: "As regras oficiais estão no site da [ADCC Brasil](https://www.adccbrasil.com.br/)." },
-      { type: "p", text: "Para treinar e competir nesse ritmo, a [linha No-Gi da VOUK](https://voukbrasil.com/collections/no-gi \"patrocinado\"), marca que patrocina o Maurício Melo, foi feita para aguentar o rigor de competições como o ADCC." },
+      { type: "p", text: "Para treinar e competir nesse ritmo, a [linha No-Gi da VOUK](https://voukbrasil.com/collections/no-gi \"patrocinado\"), marca que patrocina o Mauricio Melo, foi feita para aguentar o rigor de competições como o ADCC." },
       { type: "h2", text: "Do tatame para a vida" },
       { type: "p", text: "O evento também trouxe uma conversa sobre medo. Para Rafael Hammer, o estresse de lutar um evento desse porte é uma escola para quem empreende: acreditar no próprio trabalho mesmo com incerteza é o que separa o amador do profissional." },
       { type: "quote", text: "Preparar-se para o ADCC é como acertar um motor de corrida: cada grama de peso e cada refeição contam. Se o ajuste for preciso e a postura for de ataque, o pódio vira consequência do trabalho feito antes." },
       { type: "h2", text: "Treine com quem vive essa realidade" },
-      { type: "p", text: "Domínio e estabilização, luta em pé e cabeça fria sob pressão não ficam só no vídeo. Na Black Helmet, no bairro Garcia, em Blumenau, você treina com o **Maurício Melo**, faixa preta 6º grau que competiu no ADCC Américas em dezembro de 2025, seja para se preparar para campeonato, seja para treinar pela saúde." },
+      { type: "p", text: "Domínio e estabilização, luta em pé e cabeça fria sob pressão não ficam só no vídeo. Na Black Helmet, no bairro Garcia, em Blumenau, você treina com o **Mauricio Melo**, faixa preta 6º grau que competiu no ADCC Américas em dezembro de 2025, seja para se preparar para campeonato, seja para treinar pela saúde." },
     ],
   },
   {
@@ -81,7 +83,7 @@ export const POSTS: Post[] = [
     seoTitle: "ADCC Américas em Buenos Aires: honra, guerra e legado",
     title: "ADCC Américas em Buenos Aires: honra, guerra e legado no Jiu-Jitsu competitivo",
     description:
-      "O relato do Maurício Melo sobre o ADCC Américas, em Buenos Aires, em dezembro de 2025: lutas duras, nível altíssimo e o que fica além da medalha.",
+      "O relato do Mauricio Melo sobre o ADCC Américas, em Buenos Aires, em dezembro de 2025: lutas duras, nível altíssimo e o que fica além da medalha.",
     category: "Competição",
     published: "2025-12-17",
     modified: MIGRATED,
@@ -90,20 +92,20 @@ export const POSTS: Post[] = [
     body: [
       { type: "p", text: "Buenos Aires foi palco de um dos maiores desafios da minha trajetória no Jiu-Jitsu competitivo. O ADCC Américas, em dezembro de 2025, não é só um campeonato de alto nível técnico. É um teste de preparo físico, mental e emocional. Cada luta exige foco absoluto, estratégia e coragem para decidir sob pressão." },
       { type: "quote", text: "Antes da luta, a mente já venceu." },
-      { type: "img", src: "/img/blog/adcc-americas-retrato.webp", width: 1170, height: 793, alt: "Maurício Melo apoiado na grade à beira do tatame no ADCC Américas, em preto e branco" },
+      { type: "img", src: "/img/blog/adcc-americas-retrato.webp", width: 1170, height: 793, alt: "Mauricio Melo apoiado na grade à beira do tatame no ADCC Américas, em preto e branco" },
       { type: "h2", text: "Lutas duríssimas e responsabilidade no mais alto nível" },
       { type: "p", text: "Nível altíssimo e cada segundo valendo tudo. Entrei no tatame para representar a minha história, a minha equipe, a minha academia e todos que caminham comigo no dia a dia. Saio com a certeza de que dei tudo e de que honrei o kimono." },
       { type: "p", text: "O ADCC reúne atletas extremamente preparados. Não existe espaço para erro, e cada detalhe faz diferença. Cada confronto carrega anos de preparação, disciplina e sacrifícios silenciosos." },
-      { type: "img", src: "/img/blog/adcc-americas-luta.webp", width: 1170, height: 711, alt: "Maurício Melo em luta no ADCC Américas, em Buenos Aires, sob o olhar do árbitro" },
+      { type: "img", src: "/img/blog/adcc-americas-luta.webp", width: 1170, height: 711, alt: "Mauricio Melo em luta no ADCC Américas, em Buenos Aires, sob o olhar do árbitro" },
       { type: "h2", text: "Representar uma trajetória" },
       { type: "p", text: "Competir no **ADCC Américas em Buenos Aires** é assumir o compromisso com tudo o que foi construído no Jiu-Jitsu. Não se trata só de lutar, mas de representar valores, pessoas e uma história feita nos treinos de todo dia. O campeonato exige técnica, mas também mentalidade forte, resiliência e controle emocional." },
-      { type: "img", src: "/img/blog/adcc-americas-bandeira.webp", width: 960, height: 1280, alt: "Maurício Melo com a bandeira do Brasil diante do painel do ADCC South American Championship 2025" },
+      { type: "img", src: "/img/blog/adcc-americas-bandeira.webp", width: 960, height: 1280, alt: "Mauricio Melo com a bandeira do Brasil diante do painel do ADCC South American Championship 2025" },
       { type: "h2", text: "O que fica além da medalha" },
       { type: "p", text: "O maior legado do ADCC Américas está no aprendizado. Cada luta deixa lições que fortalecem o atleta dentro e fora do tatame. O crescimento vem do enfrentamento, da entrega total e da capacidade de aprender com cada desafio." },
       { type: "p", text: "Mais do que medalhas, levo aprendizado, gratidão e a chama acesa para seguir evoluindo. O trabalho continua. A jornada não para." },
       { type: "video", id: "2bn-zab-n2E", title: "ADCC Américas em Buenos Aires" },
       { type: "video", id: "6PFTlkqes70", title: "ADCC Américas em Buenos Aires, segunda parte" },
-      { type: "img", src: "/img/blog/adcc-americas-equipe.webp", width: 960, height: 1280, alt: "Maurício Melo e equipe diante do painel do ADCC South American Championship 2025" },
+      { type: "img", src: "/img/blog/adcc-americas-equipe.webp", width: 960, height: 1280, alt: "Mauricio Melo e equipe diante do painel do ADCC South American Championship 2025" },
       { type: "p", text: "Obrigado, Buenos Aires. Obrigado, ADCC. Oss." },
     ],
   },
@@ -112,7 +114,7 @@ export const POSTS: Post[] = [
     seoTitle: "Professora Maria Helena recebe a faixa preta",
     title: "Cerimônia de graduação: a Professora Maria Helena recebe a faixa preta",
     description:
-      "A Professora Maria Helena, que conduz as turmas kids da Black Helmet, recebe a faixa preta diante da equipe, em Blumenau.",
+      "A Professora Maria Helena, uma das professoras das turmas kids da Black Helmet, recebe a faixa preta diante da equipe, em Blumenau.",
     category: "Academia",
     published: "2025-12-10",
     modified: MIGRATED,
@@ -125,26 +127,26 @@ export const POSTS: Post[] = [
       { type: "p", text: "Essa conquista representa anos de entrega silenciosa, disciplina, superação constante e dedicação aos alunos, à equipe e à arte suave. A faixa preta não é só um grau. É um juramento renovado de responsabilidade, liderança e retidão." },
       { type: "p", text: "Diante da equipe, do tatame e da nossa história, reconhecemos oficialmente a sua trajetória, o seu caráter firme e a inspiração que você transmite a todos que têm a honra de aprender com você." },
       { type: "p", text: "Parabéns, Professora Maria Helena, pela faixa preta. Que este novo ciclo seja guiado pela sabedoria, pela técnica e pela força do espírito marcial." },
-      { type: "p", text: "Hoje a Professora Maria Helena conduz as **turmas kids da Black Helmet**, para crianças a partir de 5 anos, separadas por faixa etária." },
+      { type: "p", text: "Hoje a Professora Maria Helena está nas **turmas kids da Black Helmet**, para crianças a partir de 5 anos, separadas por faixa etária, ao lado do Professor Mauricio Melo e do Instrutor Andrews." },
     ],
   },
   {
     slug: "trajetoria-mauricio-melo-jiu-jitsu-blumenau",
     legacyPath: "/a-trajetoria-de-mauricio-melo-e-a-forca-do-jiu‑jitsu-em-blumenau/",
-    seoTitle: "A trajetória de Maurício Melo e o Jiu-Jitsu em Blumenau",
-    title: "A trajetória de Maurício Melo e a força do Jiu-Jitsu em Blumenau",
+    seoTitle: "A trajetória de Mauricio Melo e o Jiu-Jitsu em Blumenau",
+    title: "A trajetória de Mauricio Melo e a força do Jiu-Jitsu em Blumenau",
     description:
-      "Quem é o Maurício Melo, faixa preta 6º grau, como o apoio a atletas locais fortalece o esporte e o que faz a metodologia da Black Helmet.",
+      "Quem é o Mauricio Melo, faixa preta 6º grau, como o apoio a atletas locais fortalece o esporte e o que faz a metodologia da Black Helmet.",
     category: "Academia",
     published: "2025-10-16",
     modified: MIGRATED,
     author: "academia",
-    cover: { src: "/img/blog/trajetoria-mauricio-melo-jiu-jitsu-blumenau.webp", width: 1007, height: 562, alt: "Maurício Melo sentado no tatame, em conversa com outro atleta" },
+    cover: { src: "/img/blog/trajetoria-mauricio-melo-jiu-jitsu-blumenau.webp", width: 1007, height: 562, alt: "Mauricio Melo sentado no tatame, em conversa com outro atleta" },
     body: [
-      { type: "p", text: "Blumenau tem se destacado nas artes marciais com o crescimento do Jiu-Jitsu. Dentro desse movimento, a **Black Helmet** virou um polo de formação de atletas e de difusão da arte suave. Este texto fala do **Maurício Melo**, atleta que levou o nome da cidade para o cenário internacional, e de como o apoio a atletas locais fortalece o esporte na região." },
-      { type: "video", id: "GCNN-CraO9k", title: "A trajetória de Maurício Melo" },
-      { type: "h2", text: "Quem é Maurício Melo" },
-      { type: "p", text: `O Maurício Melo é **faixa preta 6º grau**, graduado faixa preta por Carlos Gracie Jr., com ${YEARS_JIU_JITSU} anos de Jiu-Jitsu e ${YEARS_BLACK_BELT} de faixa preta. É ouro no Europeu IBJJF (kimono), bronze no Mundial No-Gi IBJJF, 4x campeão em eventos ADCC e competiu no ADCC Américas, em Buenos Aires, em dezembro de 2025. É atleta patrocinado pela marca VOUK e o símbolo da Black Helmet, academia que comanda em Blumenau desde 1998.` },
+      { type: "p", text: "Blumenau tem se destacado nas artes marciais com o crescimento do Jiu-Jitsu. Dentro desse movimento, a **Black Helmet** virou um polo de formação de atletas e de difusão da arte suave. Este texto fala do **Mauricio Melo**, atleta que levou o nome da cidade para o cenário internacional, e de como o apoio a atletas locais fortalece o esporte na região." },
+      { type: "video", id: "GCNN-CraO9k", title: "A trajetória de Mauricio Melo" },
+      { type: "h2", text: "Quem é Mauricio Melo" },
+      { type: "p", text: `O Mauricio Melo é **faixa preta 6º grau**, graduado faixa preta por Carlos Gracie Jr., com ${YEARS_JIU_JITSU} anos de Jiu-Jitsu e ${YEARS_BLACK_BELT} de faixa preta. É ouro no Europeu IBJJF (kimono), bronze no Mundial IBJJF (kimono), ${ADCC_TITLES}x campeão em eventos ADCC e competiu no ADCC Américas, em Buenos Aires, em dezembro de 2025. É atleta patrocinado pela marca VOUK e o símbolo da Black Helmet, academia que comanda em Blumenau desde 1998.` },
       { type: "h2", text: "A importância do apoio aos atletas" },
       { type: "p", text: "O apoio de marcas e academias é o que permite a talentos regionais competir e evoluir. Com patrocínio, o atleta consegue:" },
       { type: "ul", items: [
@@ -154,7 +156,7 @@ export const POSTS: Post[] = [
       ] },
       { type: "p", text: "Quando uma academia investe nos alunos e cria vínculos com marcas do setor, ela fortalece toda a comunidade do Jiu-Jitsu local." },
       { type: "h2", text: "A metodologia da Black Helmet" },
-      { type: "p", text: "A Black Helmet é uma das academias mais tradicionais de Blumenau. Tem aulas de **Jiu-Jitsu, No-Gi e Wrestling para Jiu-Jitsu**, com o Maurício Melo à frente, num trabalho técnico e ao mesmo tempo próximo de cada aluno, do iniciante ao competidor." },
+      { type: "p", text: "A Black Helmet é uma das academias mais tradicionais de Blumenau. Tem aulas de **Jiu-Jitsu, No-Gi e Wrestling para Jiu-Jitsu**, com o Mauricio Melo à frente, num trabalho técnico e ao mesmo tempo próximo de cada aluno, do iniciante ao competidor." },
       { type: "ul", items: [
         "**Desenvolvimento técnico e humano:** além da parte física, o treino trabalha disciplina, respeito e autoconfiança.",
         "**Variedade de modalidades:** com kimono, sem kimono (No-Gi) e quedas para o Jiu-Jitsu, formando atletas completos.",
@@ -163,15 +165,15 @@ export const POSTS: Post[] = [
       { type: "h2", text: "Os benefícios do Jiu-Jitsu e o impacto em Blumenau" },
       { type: "p", text: "Para o corpo, o Jiu-Jitsu melhora condicionamento, flexibilidade e força. Para a cabeça, ajuda a reduzir o estresse, aumentar a autoestima e desenvolver disciplina. Em Blumenau, a arte suave também tem papel social: acolhe crianças, jovens e adultos e oferece uma alternativa esportiva saudável." },
       { type: "h2", text: "Conclusão" },
-      { type: "p", text: "O Maurício Melo representa a força e a determinação do Jiu-Jitsu blumenauense. Se você procura um lugar para começar ou evoluir no Jiu-Jitsu, a Black Helmet junta tradição e experiência de competição com um ensino feito para o seu ritmo." },
+      { type: "p", text: "O Mauricio Melo representa a força e a determinação do Jiu-Jitsu blumenauense. Se você procura um lugar para começar ou evoluir no Jiu-Jitsu, a Black Helmet junta tradição e experiência de competição com um ensino feito para o seu ritmo." },
     ],
   },
   {
     slug: "voce-sabe-passar-a-guarda-como-mauricio-melo",
-    seoTitle: "Passagem de guarda no Jiu-Jitsu com o Maurício Melo",
-    title: "Você sabe passar a guarda como o Maurício Melo?",
+    seoTitle: "Passagem de guarda no Jiu-Jitsu com o Mauricio Melo",
+    title: "Você sabe passar a guarda como o Mauricio Melo?",
     description:
-      "Passo a passo da passagem de guarda demonstrada pelo Maurício Melo, faixa preta 6º grau, com dicas de base, postura e pressão para treinar.",
+      "Passo a passo da passagem de guarda demonstrada pelo Mauricio Melo, faixa preta 6º grau, com dicas de base, postura e pressão para treinar.",
     category: "Técnica",
     published: "2025-10-16",
     modified: MIGRATED,
@@ -179,8 +181,8 @@ export const POSTS: Post[] = [
     cover: { src: "/img/blog/voce-sabe-passar-a-guarda-como-mauricio-melo.webp", width: 1022, height: 577, alt: "Dois atletas de kimono sentados no tatame, diante do logo da VOUK" },
     body: [
       { type: "p", text: "A **passagem de guarda** é um dos fundamentos mais importantes do Jiu-Jitsu. É o momento em que quem está por cima rompe a linha de defesa formada pelas pernas e pelo quadril do oponente (a guarda) e avança para uma posição de domínio, como a montada ou o 100 kg. Dominar essa transição exige técnica, paciência e muita repetição." },
-      { type: "p", text: "No vídeo abaixo, o Maurício Melo, faixa preta 6º grau e professor da Black Helmet, demonstra uma passagem de guarda clássica e cheia de detalhes. Este texto complementa a demonstração." },
-      { type: "video", id: "V7F_2-PZXrA", title: "Você sabe passar a guarda como Maurício Melo?" },
+      { type: "p", text: "No vídeo abaixo, o Mauricio Melo, faixa preta 6º grau e professor da Black Helmet, demonstra uma passagem de guarda clássica e cheia de detalhes. Este texto complementa a demonstração." },
+      { type: "video", id: "V7F_2-PZXrA", title: "Você sabe passar a guarda como Mauricio Melo?" },
       { type: "h2", text: "Por que a passagem de guarda é fundamental" },
       { type: "ul", items: [
         "**Pontua nas competições:** nas regras da IBJJF, a passagem de guarda vale três pontos e pode decidir uma luta equilibrada.",
@@ -212,17 +214,17 @@ export const POSTS: Post[] = [
     slug: "estrangulamento-do-norte-sul-jiu-jitsu",
     legacyPath: "/estrangulamento-norte‑sul-no-jiu‑jitsu-aprenda-com-mauricio-melo-da-black-helmet-de-blumenau/",
     seoTitle: "Estrangulamento do norte-sul no Jiu-Jitsu, passo a passo",
-    title: "Estrangulamento do norte-sul no Jiu-Jitsu: aprenda com o Maurício Melo",
+    title: "Estrangulamento do norte-sul no Jiu-Jitsu: aprenda com o Mauricio Melo",
     description:
-      "Do 100 kg para o norte-sul com estrangulamento na lapela: o passo a passo demonstrado pelo Maurício Melo, com base, postura e controle.",
+      "Do 100 kg para o norte-sul com estrangulamento na lapela: o passo a passo demonstrado pelo Mauricio Melo, com base, postura e controle.",
     category: "Técnica",
     published: "2025-10-16",
     modified: MIGRATED,
     author: "academia",
     cover: { src: "/img/blog/estrangulamento-do-norte-sul-jiu-jitsu.webp", width: 797, height: 583, alt: "Demonstração do 100 kg no tatame do centro de treinamento da VOUK" },
     body: [
-      { type: "p", text: "No Jiu-Jitsu, os detalhes fazem a diferença. Num vídeo gravado no centro de treinamento da VOUK, marca que patrocina o Maurício Melo, ele demonstra uma **transição do 100 kg para o norte-sul**, finalizando com um estrangulamento na lapela. O estilo é o de sempre: fundamento e pressão constante." },
-      { type: "video", id: "JLCIkWBQ1vs", title: "Estrangulamento do norte-sul com Maurício Melo" },
+      { type: "p", text: "No Jiu-Jitsu, os detalhes fazem a diferença. Num vídeo gravado no centro de treinamento da VOUK, marca que patrocina o Mauricio Melo, ele demonstra uma **transição do 100 kg para o norte-sul**, finalizando com um estrangulamento na lapela. O estilo é o de sempre: fundamento e pressão constante." },
+      { type: "video", id: "JLCIkWBQ1vs", title: "Estrangulamento do norte-sul com Mauricio Melo" },
       { type: "h2", text: "O 100 kg e o norte-sul" },
       { type: "p", text: "O **100 kg** é o controle lateral em que quem está por cima distribui o peso sobre o oponente, imobilizando quadril e ombros, geralmente com um braço por baixo da cabeça e o outro junto ao cotovelo do adversário. Dele saem transições para a montada, o joelho na barriga ou, como no vídeo, o **norte-sul**." },
       { type: "p", text: "No norte-sul, o seu tronco fica alinhado ao do oponente, com as cabeças em sentidos opostos. Essa mudança de direção reduz as chances de raspagem e abre espaço para o estrangulamento." },
@@ -247,20 +249,20 @@ export const POSTS: Post[] = [
   {
     slug: "mauricio-melo-recebe-6-grau-das-maos-crezio",
     legacyPath: "/mauricio-mello-recebe-6-grau-das-maos-crezio/",
-    seoTitle: "Maurício Melo recebe o 6º grau das mãos do mestre Crézio",
-    title: "A jornada de um mestre: Maurício Melo recebe o 6º grau das mãos do mestre Crézio",
+    seoTitle: "Mauricio Melo recebe o 6º grau das mãos do mestre Crézio",
+    title: "A jornada de um mestre: Mauricio Melo recebe o 6º grau das mãos do mestre Crézio",
     description:
-      "O Maurício Melo recebe o sexto grau na faixa preta das mãos do mestre Crézio: a celebração de uma vida inteira dedicada ao Jiu-Jitsu.",
+      "O Mauricio Melo recebe o sexto grau na faixa preta das mãos do mestre Crézio: a celebração de uma vida inteira dedicada ao Jiu-Jitsu.",
     category: "Academia",
     published: "2025-10-29",
     modified: MIGRATED,
     author: "academia",
-    cover: { src: "/img/blog/mauricio-melo-recebe-6-grau-das-maos-crezio.webp", width: 1485, height: 1485, alt: "Maurício Melo e o mestre Crézio, de faixa coral, na graduação de 6º grau" },
+    cover: { src: "/img/blog/mauricio-melo-recebe-6-grau-das-maos-crezio.webp", width: 1485, height: 1485, alt: "Mauricio Melo e o mestre Crézio, de faixa coral, na graduação de 6º grau" },
     body: [
       { type: "p", text: "Receber o **sexto grau na faixa preta de Jiu-Jitsu das mãos do mestre Crézio** carrega muito mais do que um reconhecimento técnico. É a celebração de uma vida inteira dedicada ao Jiu-Jitsu." },
-      { type: "p", text: "Dos primeiros treinos às grandes competições, cada passo da trajetória do professor Maurício Melo foi guiado por disciplina, paixão e respeito pelos valores do Jiu-Jitsu." },
+      { type: "p", text: "Dos primeiros treinos às grandes competições, cada passo da trajetória do professor Mauricio Melo foi guiado por disciplina, paixão e respeito pelos valores do Jiu-Jitsu." },
       { type: "p", text: "Ser graduado por um ícone como o mestre Crézio representa a continuidade de uma linhagem de mestres, atletas e professores que mantém viva a essência do esporte. O sexto grau simboliza as conquistas no tatame e também a influência passada a cada aluno e companheiro de jornada." },
-      { type: "p", text: "Assim como o mestre Crézio inspirou gerações, o professor Maurício segue inspirando novos praticantes a acreditar na superação, na técnica e na humildade, os pilares que sustentam a história da Black Helmet." },
+      { type: "p", text: "Assim como o mestre Crézio inspirou gerações, o professor Mauricio segue inspirando novos praticantes a acreditar na superação, na técnica e na humildade, os pilares que sustentam a história da Black Helmet." },
     ],
   },
   {
@@ -323,7 +325,7 @@ export const POSTS: Post[] = [
       { type: "h2", text: "Defesa pessoal e confiança contra o bullying" },
       { type: "p", text: "O Jiu-Jitsu ensina técnicas de defesa pessoal que ajudam a criança a se proteger. Mais do que isso, a postura de segurança e confiança que ela ganha no tatame ajuda a evitar situações de bullying." },
       { type: "h2", text: "A turma kids da Black Helmet" },
-      { type: "p", text: "Na Black Helmet, as aulas kids são **lúdicas e seguras, a partir de 5 anos, com turmas separadas por faixa etária**. Quem conduz é a **Professora Maria Helena, faixa preta**. Os pais acompanham tudo da sala de espera, com transmissão ao vivo do tatame." },
+      { type: "p", text: "Na Black Helmet, as aulas kids são **lúdicas e seguras, a partir de 5 anos, com turmas separadas por faixa etária**. Quem conduz são a **Professora Maria Helena, faixa preta**, o **Professor Mauricio Melo** e o **Instrutor Andrews**. Os pais acompanham tudo da sala de espera, com transmissão ao vivo do tatame." },
       { type: "p", text: "Colocar uma criança no Jiu-Jitsu é dar a ela a chance de crescer com propósito, força e valores sólidos." },
     ],
   },

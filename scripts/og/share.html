@@ -1,0 +1,39 @@
+<!doctype html>
+<!-- Arte de compartilhamento (og:image) 1200x630. Para regerar: ver scripts/og/README.md -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face { font-family: "Oswald"; src: url("../../public/fonts/oswald-latin-300-normal.woff2") format("woff2"); font-weight: 300; }
+  @font-face { font-family: "Oswald"; src: url("../../public/fonts/oswald-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
+  @font-face { font-family: "Oswald"; src: url("../../public/fonts/oswald-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+  @font-face { font-family: "Montserrat"; src: url("../../public/fonts/montserrat-latin-500-normal.woff2") format("woff2"); font-weight: 500; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #040507; color: #f2f8f8; }
+  .art { position: relative; width: 1200px; height: 630px; }
+  .label { position: absolute; left: 80px; top: 90px; font: 500 17px/1 "Montserrat"; letter-spacing: .38em; color: #ccd8e0; text-transform: uppercase; }
+  h1 { position: absolute; left: 76px; top: 150px; margin: 0; font-family: "Oswald"; font-size: 92px; line-height: 1; letter-spacing: -.005em; }
+  h1 .b { font-weight: 700; display: block; }
+  h1 .l { font-weight: 300; }
+  h1 .z { font-weight: 700; color: #f1e306; }
+  .sig { position: absolute; left: 80px; bottom: 72px; font: 500 17px/1 "Montserrat"; color: #ccd8e0; }
+  /* Selo centrado em (928, 315): caixa de 580px com os dois anéis e o selo de 420px no meio. */
+  .seal { position: absolute; left: 638px; top: 25px; width: 580px; height: 580px; }
+  .seal svg { position: absolute; inset: 0; }
+  .seal img { position: absolute; left: 80px; top: 80px; width: 420px; height: 420px; border-radius: 50%; }
+</style>
+</head>
+<body>
+  <div class="art">
+    <div class="label">Blumenau · Garcia · desde 1998</div>
+    <h1><span class="b">Jiu-Jitsu</span><span class="b">em Blumenau.</span><span class="l">Comece do </span><span class="z">zero.</span></h1>
+    <div class="sig">Mauricio Melo · faixa preta 6º grau de Carlos Gracie Jr.</div>
+    <div class="seal">
+      <svg width="580" height="580" viewBox="0 0 580 580" aria-hidden="true">
+        <circle cx="290" cy="290" r="286" fill="none" stroke="#f2f8f8" stroke-opacity=".5" stroke-width="2" />
+        <circle cx="290" cy="290" r="250" fill="none" stroke="#f2f8f8" stroke-opacity=".14" stroke-width="1" />
+      </svg>
+      <img src="../../public/img/selo-384.png" alt="" />
+    </div>
+  </div>
+</body>
+</html>

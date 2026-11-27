@@ -23,7 +23,7 @@ const OG_IMAGE = `${SITE_URL}/og/black-helmet-share.jpg`;
 const ORG_ID = `${SITE_URL}/#academia`;
 const PERSON_ID = `${SITE_URL}/#mauricio-melo`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
-const LASTMOD = "2026-11-25";
+const LASTMOD = "2026-11-27";
 
 const academy: JsonLd = {
   "@type": ["SportsActivityLocation", "ExerciseGym"],
@@ -31,7 +31,7 @@ const academy: JsonLd = {
   name: SITE_NAME,
   alternateName: ["Black Helmet", "Black Helmet Jiu-Jitsu", LEGAL_NAME],
   description:
-    "Academia de Jiu-Jitsu no bairro Garcia, em Blumenau (SC), desde 1998. Turmas de adulto do iniciante ao avançado, mulheres, kids a partir de 5 anos, 40+, No-Gi, Wrestling para Jiu-Jitsu, defesa pessoal e aula particular, com o Maurício Melo, faixa preta 6º grau de Carlos Gracie Jr.",
+    "Academia de Jiu-Jitsu no bairro Garcia, em Blumenau (SC), desde 1998. Turmas de adulto do iniciante ao avançado (inclusive para quem começa depois dos 40), mulheres, kids a partir de 5 anos, No-Gi, Wrestling para Jiu-Jitsu e aula particular, com o Mauricio Melo, faixa preta 6º grau de Carlos Gracie Jr.",
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/img/selo-384.png`,
   image: OG_IMAGE,
@@ -69,10 +69,9 @@ const academy: JsonLd = {
     "Jiu-Jitsu adulto (iniciante ao avançado)",
     "Jiu-Jitsu para mulheres",
     "Jiu-Jitsu kids (a partir de 5 anos)",
-    "Jiu-Jitsu 40+",
+    "Jiu-Jitsu para quem começa depois dos 40",
     "No-Gi",
     "Wrestling para Jiu-Jitsu",
-    "Defesa pessoal",
     "Aula particular",
     "Aula experimental",
   ].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
@@ -80,6 +79,7 @@ const academy: JsonLd = {
   employee: [
     { "@id": PERSON_ID },
     { "@type": "Person", name: "Maria Helena", jobTitle: "Professora de Jiu-Jitsu kids, faixa preta" },
+    { "@type": "Person", name: "Andrews", jobTitle: "Instrutor de Jiu-Jitsu kids" },
   ],
   sameAs: [INSTAGRAM_URL, YOUTUBE_URL],
 };
@@ -87,7 +87,7 @@ const academy: JsonLd = {
 const person: JsonLd = {
   "@type": "Person",
   "@id": PERSON_ID,
-  name: "Maurício Melo",
+  name: "Mauricio Melo",
   jobTitle: "Mestre de Jiu-Jitsu, faixa preta 6º grau",
   description:
     `Faixa preta 6º grau de Carlos Gracie Jr., com ${YEARS_JIU_JITSU} anos de Jiu-Jitsu e ${YEARS_BLACK_BELT} de faixa preta. Fundador e professor da Black Helmet Team, em Blumenau (SC).`,
@@ -117,9 +117,9 @@ const graph = (...nodes: JsonLd[]): JsonLd => ({ "@context": "https://schema.org
 
 export const HOME_ROUTE: RouteMeta = {
   path: "/",
-  title: "Jiu-Jitsu em Blumenau | Black Helmet Team · Maurício Melo",
+  title: "Jiu-Jitsu em Blumenau | Black Helmet Team · Mauricio Melo",
   description:
-    "Jiu-Jitsu no Garcia, em Blumenau, com o Maurício Melo, faixa preta 6º grau. Turmas para adultos, mulheres, kids a partir de 5 anos e 40+. Agende sua aula.",
+    "Jiu-Jitsu no Garcia, em Blumenau, com o Mauricio Melo, faixa preta 6º grau. Turmas para adultos de todas as idades, mulheres e kids a partir de 5 anos. Agende sua aula.",
   sitemap: { lastmod: LASTMOD, changefreq: "monthly", priority: 1 },
   jsonLd: [
     graph(academy, person, website, {
@@ -151,6 +151,15 @@ export const NOT_FOUND_ROUTE: RouteMeta = {
   jsonLd: [],
 };
 
+/** Página da bio do Instagram: noindex e fora do sitemap (é um atalho, não conteúdo novo). */
+export const LINKS_ROUTE: RouteMeta = {
+  path: "/links/",
+  title: "Links | Black Helmet Team · Jiu-Jitsu em Blumenau",
+  description: "Agende sua aula experimental pelo WhatsApp, conheça o site e trace a rota até a Black Helmet, no Garcia, em Blumenau.",
+  noindex: true,
+  jsonLd: [],
+};
+
 const crumbs = (items: [string, string][]): JsonLd => ({
   "@type": "BreadcrumbList",
   itemListElement: items.map(([name, path], i) => ({ "@type": "ListItem", position: i + 1, name, item: `${SITE_URL}${path}` })),
@@ -160,7 +169,7 @@ export const BLOG_ROUTE: RouteMeta = {
   path: "/blog/",
   title: "Blog de Jiu-Jitsu | Black Helmet Team · Blumenau",
   description:
-    "Técnicas explicadas pelo Maurício Melo, bastidores do ADCC, graduações da equipe e o que o Jiu-Jitsu ensina para adultos e crianças. Black Helmet, Blumenau.",
+    "Técnicas explicadas pelo Mauricio Melo, bastidores do ADCC, graduações da equipe e o que o Jiu-Jitsu ensina para adultos e crianças. Black Helmet, Blumenau.",
   sitemap: { lastmod: POSTS_BY_DATE.map((p) => p.modified).sort().reverse()[0], changefreq: "weekly", priority: 0.6 },
   jsonLd: [
     graph(website, {
@@ -207,13 +216,13 @@ const postRoute = (p: Post): RouteMeta => {
       }, {
         // Nós citados pelo @id (precisam existir no mesmo grafo).
         "@type": ["SportsActivityLocation", "ExerciseGym"], "@id": ORG_ID, name: SITE_NAME, url: `${SITE_URL}/`, logo: `${SITE_URL}/img/selo-384.png`,
-      }, { "@type": "Person", "@id": PERSON_ID, name: "Maurício Melo", url: `${SITE_URL}/#professor` },
+      }, { "@type": "Person", "@id": PERSON_ID, name: "Mauricio Melo", url: `${SITE_URL}/#professor` },
       crumbs([["Início", "/"], ["Blog", "/blog/"], [p.seoTitle, postPath(p)]])),
     ],
   };
 };
 
-export const getRoutes = (): RouteMeta[] => [HOME_ROUTE, PRIVACY_ROUTE, BLOG_ROUTE, ...POSTS.map(postRoute)];
+export const getRoutes = (): RouteMeta[] => [HOME_ROUTE, PRIVACY_ROUTE, BLOG_ROUTE, LINKS_ROUTE, ...POSTS.map(postRoute)];
 
 const escapeHtml = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");

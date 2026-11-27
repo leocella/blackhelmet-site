@@ -23,7 +23,7 @@ export const Blog = () => (
             Técnica, competição e <span className="text-crest">vida de tatame.</span>
           </h1>
           <p className="rise lead mt-6 max-w-2xl text-steel" style={{ animationDelay: ".16s" }}>
-            Posições explicadas pelo Maurício Melo, os bastidores do ADCC, as graduações da equipe e o que o Jiu-Jitsu ensina para adultos e crianças.
+            Posições explicadas pelo Mauricio Melo, os bastidores do ADCC, as graduações da equipe e o que o Jiu-Jitsu ensina para adultos e crianças.
           </p>
         </div>
       </section>

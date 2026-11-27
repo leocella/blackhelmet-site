@@ -3,6 +3,7 @@ import { Privacy } from "@/pages/Privacy";
 import { NotFound } from "@/pages/NotFound";
 import { Blog } from "@/pages/Blog";
 import { Post } from "@/pages/Post";
+import { Links } from "@/pages/Links";
 import { Consent } from "@/components/Consent";
 import { findPost } from "@/content/posts";
 
@@ -15,6 +16,7 @@ export const App = ({ path }: { path: string }) => {
     p === "/" ? <Home /> :
     p === "/privacidade/" ? <Privacy /> :
     p === "/blog/" ? <Blog /> :
+    p === "/links/" ? <Links /> :
     post ? <Post post={post} /> :
     <NotFound />;
   return (

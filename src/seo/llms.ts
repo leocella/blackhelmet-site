@@ -1,17 +1,17 @@
 import {
-  ADDRESS_LINE, AUDIENCES, FAQ, HOURS, INSTAGRAM_URL, MAPS_URL, PHONE_DISPLAY, SITE_URL, STRUCTURE, TITLES, WHATSAPP_NUMBER, YOUTUBE_URL,
+  ADDRESS_LINE, AUDIENCES, FAQ, HOURS, INSTAGRAM_URL, KIDS_TEAM, MAPS_URL, PHONE_DISPLAY, SITE_URL, STRUCTURE, TITLES, WHATSAPP_NUMBER, YOUTUBE_URL,
 } from "@/content/site";
 import { POSTS_BY_DATE, postPath } from "@/content/posts";
 
 /** llms.txt: resumo factual para buscadores de IA (ChatGPT, Claude, Perplexity, Gemini). Gerado dos mesmos dados da página. */
 export const buildLlms = () => `# Black Helmet Team
 
-> A Black Helmet Team é uma academia de Jiu-Jitsu (Brazilian Jiu-Jitsu) no bairro Garcia, em Blumenau, Santa Catarina, fundada em 1998 e comandada pelo Maurício Melo, faixa preta 6º grau de Carlos Gracie Jr. Tem turmas de adulto do iniciante ao avançado, mulheres, kids a partir de 5 anos, 40+, No-Gi, Wrestling para Jiu-Jitsu, defesa pessoal e aula particular. A entrada é pela aula experimental, agendada pelo WhatsApp.
+> A Black Helmet Team é uma academia de Jiu-Jitsu (Brazilian Jiu-Jitsu) no bairro Garcia, em Blumenau, Santa Catarina, fundada em 1998 e comandada pelo Mauricio Melo, faixa preta 6º grau de Carlos Gracie Jr. Tem turmas de adulto do iniciante ao avançado (inclusive para quem começa depois dos 40, sem turma separada por idade), mulheres, kids a partir de 5 anos, No-Gi, Wrestling para Jiu-Jitsu e aula particular. A entrada é pela aula experimental, agendada pelo WhatsApp.
 
 ## Dados da academia
 
 - **Nome:** Black Helmet Team (também "Black Helmet")
-- **Modalidade:** Jiu-Jitsu (BJJ), No-Gi, Wrestling para Jiu-Jitsu, defesa pessoal
+- **Modalidade:** Jiu-Jitsu (BJJ), No-Gi, Wrestling para Jiu-Jitsu
 - **Endereço:** ${ADDRESS_LINE}
 - **Mapa:** ${MAPS_URL}
 - **WhatsApp e telefone:** ${PHONE_DISPLAY} (https://wa.me/${WHATSAPP_NUMBER})
@@ -28,11 +28,11 @@ ${AUDIENCES.map((a) => `- **${a.tab}:** ${a.lead}`).join("\n")}
 
 ${STRUCTURE.map((s) => `- **${s.title}:** ${s.text}`).join("\n")}
 
-## Professor: Maurício Melo
+## Professor: Mauricio Melo
 
 ${TITLES.map((t) => `- ${t}`).join("\n")}
 
-A turma kids é conduzida pela Professora Maria Helena, faixa preta.
+As turmas kids são conduzidas por ${KIDS_TEAM}.
 
 ## Perguntas frequentes
 

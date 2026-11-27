@@ -1,6 +1,6 @@
 # Black Helmet Team · site
 
-Landing page de conversão da Black Helmet Team (Jiu-Jitsu em Blumenau, Maurício Melo). Padrão Claryon: Vite + React + Tailwind, pré-renderizado no build, deploy na Vercel.
+Landing page de conversão da Black Helmet Team (Jiu-Jitsu em Blumenau, Mauricio Melo). Padrão Claryon: Vite + React + Tailwind, pré-renderizado no build, deploy na Vercel.
 
 ## Rodar
 
@@ -13,13 +13,15 @@ npm run build    # gera dist/ com HTML pré-renderizado, sitemap.xml, robots.txt
 ## Onde mexer
 
 - `src/content/site.ts`: todos os fatos (endereço, horários, títulos, turmas, FAQ, fotos). A página, o JSON-LD e o `llms.txt` saem daqui.
-- `FREE_TRIAL` em `site.ts`: mude para `true` só depois que o Maurício confirmar que a aula experimental é gratuita.
+- `FREE_TRIAL` em `site.ts`: mude para `true` só depois que o Mauricio confirmar que a aula experimental é gratuita.
 - `PHOTOS` em `site.ts`: coloque as fotos em `public/img/fotos/` (webp, ~1600px) e preencha os caminhos.
 - `src/seo/routes.ts`: title, description e dados estruturados (SportsActivityLocation, Person, FAQPage).
 - `VITE_LEAD_WEBHOOK` (opcional, variável na Vercel): URL que recebe cada lead do formulário em JSON (n8n, Make, planilha). Sem ela, o lead vai só pelo WhatsApp. A política de privacidade muda o texto sozinha quando ela existe.
 - `GOOGLE_SITE_VERIFICATION` (opcional, variável na Vercel): código da meta tag do Google Search Console, só se a propriedade for "Prefixo do URL". Com propriedade "Domínio" (recomendado), a verificação é por registro TXT no DNS e essa variável não é usada.
+- `src/pages/Links.tsx`: página `/links/` para a bio do Instagram (WhatsApp, site e rota no Maps). Fica fora do sitemap e com noindex.
+- `scripts/og/`: molde da imagem de compartilhamento (`public/og/black-helmet-share.jpg`) e como regerar.
 - `vercel.json`: redirects 301 das URLs do WordPress antigo (posts, categoria, feed e sitemaps). Se um post ganhar rota própria aqui, troque o destino dele.
 
 ## Medição
 
-GTM `GTM-MVKXNL9X` carrega só depois do aceite de cookies. Eventos no `dataLayer`: `generate_lead`, `whatsapp_click`, `cta_click`, `audience_select`, `faq_open`, `maps_click`, `phone_click`.
+GTM `GTM-MVKXNL9X` carrega só depois do aceite de cookies. Eventos no `dataLayer`: `generate_lead`, `whatsapp_click`, `cta_click`, `audience_select`, `faq_open`, `maps_click`, `phone_click`, `links_click` (página `/links/`, com o parâmetro `link`: `whatsapp`, `site` ou `rota`).
